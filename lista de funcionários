@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Funcionários</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<style>
+
+/* Estilo básico para o body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Estilo para o header */
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+/* Estilo da tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:hover {
+    background-color: #ddd;
+}
+
+
+</style>
+
+
+<header>
+    <h1>Lista de Funcionários</h1>
+</header>
+
+<main>
+    <h2>Funcionários Fictícios</h2>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Cargo</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>João Silva</td>
+                <td>Gerente de Vendas</td>
+                <td>joao.silva@comercial.com</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Maria Oliveira</td>
+                <td>Assistente Comercial</td>
+                <td>maria.oliveira@comercial.com</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Carlos Pereira</td>
+                <td>Analista Comercial</td>
+                <td>carlos.pereira@comercial.com</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Ana Costa</td>
+                <td>Coordenadora de Vendas</td>
+                <td>ana.costa@comercial.com</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Paulo Santos</td>
+                <td>Vendedor</td>
+                <td>paulo.santos@comercial.com</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Lucas Almeida</td>
+                <td>Consultor Comercial</td>
+                <td>lucas.almeida@comercial.com</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Fernanda Lima</td>
+                <td>Gerente Comercial</td>
+                <td>fernanda.lima@comercial.com</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Juliana Costa</td>
+                <td>Coordenadora Comercial</td>
+                <td>juliana.costa@comercial.com</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Ricardo Gomes</td>
+                <td>Vendedor</td>
+                <td>ricardo.gomes@comercial.com</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Beatriz Martins</td>
+                <td>Assistente de Vendas</td>
+                <td>beatriz.martins@comercial.com</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>Rodrigo Souza</td>
+                <td>Analista de Vendas</td>
+                <td>rodrigo.souza@comercial.com</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>Gabriela Dias</td>
+                <td>Consultora de Vendas</td>
+                <td>gabriela.dias@comercial.com</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>Marcos Ferreira</td>
+                <td>Vendedor Externo</td>
+                <td>marcos.ferreira@comercial.com</td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>Cláudia Ribeiro</td>
+                <td>Assistente de Vendas</td>
+                <td>claudia.ribeiro@comercial.com</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>Felipe Mendes</td>
+                <td>Consultor Comercial</td>
+                <td>felipe.mendes@comercial.com</td>
+            </tr>
+            <tr>
+                <td>16</td>
+                <td>Sandra Pereira</td>
+                <td>Gerente de Vendas</td>
+                <td>sandra.pereira@comercial.com</td>
+            </tr>
+            <tr>
+                <td>17</td>
+                <td>Thiago Rodrigues</td>
+                <td>Coordenador de Vendas</td>
+                <td>thiago.rodrigues@comercial.com</td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td>Rafael Alves</td>
+                <td>Vendedor</td>
+                <td>rafael.alves@comercial.com</td>
+            </tr>
+            <tr>
+                <td>19</td>
+                <td>Letícia Araújo</td>
+                <td>Consultora Comercial</td>
+                <td>leticia.araujo@comercial.com</td>
+            </tr>
+            <tr>
+                <td>20</td>
+                <td>André Souza</td>
+                <td>Analista Comercial</td>
+                <td>andre.souza@comercial.com</td>
+            </tr>
+            <tr>
+                <td>21</td>
+                <td>Renata Barbosa</td>
+                <td>Vendedora</td>
+                <td>renata.barbosa@comercial.com</td>
+            </tr>
+            <tr>
+                <td>22</td>
+                <td>Felipe Costa</td>
+                <td>Coordenador Comercial</td>
+                <td>felipe.costa@comercial.com</td>
+            </tr>
+            <tr>
+                <td>23</td>
+                <td>Larissa Silva</td>
+                <td>Assistente Comercial</td>
+                <td>larissa.silva@comercial.com</td>
+            </tr>
+            <tr>
+                <td>24</td>
+                <td>Eduardo Alves</td>
+                <td>Consultor Comercial</td>
+                <td>eduardo.alves@comercial.com</td>
+            </tr>
+            <tr>
+                <td>25</td>
+                <td>Priscila Gomes</td>
+                <td>Vendedora</td>
+                <td>priscila.gomes@comercial.com</td>
+            </tr>
+            <tr>
+                <td>26</td>
+                <td>Paula Fernandes</td>
+                <td>Gerente Comercial</td>
+                <td>paula.fernandes@comercial.com</td>
+            </tr>
+            <tr>
+                <td>27</td>
+                <td>Mariana Lima</td>
+                <td>Coordenadora de Vendas</td>
+                <td>mariana.lima@comercial.com</td>
+            </tr>
+            <tr>
+                <td>28</td>
+                <td>Márcio Duarte</td>
+                <td>Vendedor</td>
+                <td>marcio.duarte@comercial.com</td>
+            </tr>
+            <tr>
+                <td>29</td>
+                <td>Vinícius Costa</td>
+                <td>Assistente Comercial</td>
+                <td>vinicius.costa@comercial.com</td>
+            </tr>
+            <tr>
+                <td>30</td>
+                <td>Vanessa Almeida</td>
+                <td>Analista de Vendas</td>
+                <td>vanessa.almeida@comercial.com</td>
+            </tr>
+            <tr>
+                <td>31</td>
+                <td>Eduardo Lima</td>
+                <td>Consultor Comercial</td>
+                <td>eduardo.lima@comercial.com</td>
+            </tr>
+            <tr>
+                <td>32</td>
+                <td>Isabela Oliveira</td>
+                <td>Gerente de Vendas</td>
+                <td>isabela.oliveira@comercial.com</td>
+            </tr>
+            <tr>
+                <td>33</td>
+                <td>Rogério Castro</td>
+                <td>Vendedor</td>
+                <td>rogerio.castro@comercial.com</td>
+            </tr>
+            <tr>
+                <td>34</td>
+                <td>Roberta Pereira</td>
+                <td>Consultora Comercial</td>
+                <td>roberta.pereira@comercial.com</td>
+            </tr>
+            <tr>
+                <td>35</td>
+                <td>Junior Santos</td>
+                <td>Auxiliar</td>
+                <td>junior.santos@comercial.com</td>
+            </tr>
+            <td>35</td>
+            <td>João Henrique</td>
+            <td>Assistente de Vendas</td>
+            <td>joao.henrique@comercial.com</td>
+        </tr>
+        <tr>
+            <td>36</td>
+            <td>Carla Costa</td>
+            <td>Coordenadora Comercial</td>
+            <td>carla.costa@comercial.com</td>
+        </tr>
+        <tr>
+            <td>37</td>
+            <td>Igor Rocha</td>
+            <td>Vendedor Externo</td>
+            <td>igor.rocha@comercial.com</td>
+        </tr>
+        <tr>
+            <td>38</td>
+            <td>Bruna Martins</td>
+            <td>Gerente de Vendas</td>
+            <td>bruna.martins@comercial.com</td>
+        </tr>
+        <tr>
+            <td>39</td>
+            <td>Daniela Almeida</td>
+            <td>Consultora Comercial</td>
+            <td>daniela.almeida@comercial.com</td>
+        </tr>
+        <tr>
+            <td>40</td>
+            <td>Paulo Barbosa</td>
+            <td>Assistente Comercial</td>
+            <td>paulo.barbosa@comercial.com</td>
+        </tr>
+        <tr>
+            <td>41</td>
+            <td>Marcio Souza</td>
+            <td>Coordenador de Vendas</td>
+            <td>marcio.souza@comercial.com</td>
+        </tr>
+        <tr>
+            <td>42</td>
+            <td>Silvana Rodrigues</td>
+            <td>Vendedora</td>
+            <td>silvana.rodrigues@comercial.com</td>
+        </tr>
+        <tr>
+            <td>43</td>
+            <td>Jéssica Lima</td>
+            <td>Consultora de Vendas</td>
+            <td>jessica.lima@comercial.com</td>
+        </tr>
+        <tr>
+            <td>44</td>
+            <td>Leandro Souza</td>
+            <td>Analista Comercial</td>
+            <td>leandro.souza@comercial.com</td>
+        </tr>
+        <tr>
+            <td>45</td>
+            <td>Simone Silva</td>
+            <td>Vendedora</td>
+            <td>simone.silva@comercial.com</td>
+            <tr>
+                <td>46</td>
+                <td>Fabiana Martins</td>
+                <td>Coordenadora de Vendas</td>
+                <td>fabiana.martins@comercial.com</td>
+            </tr>
+            <tr>
+                <td>47</td>
+                <td>Gustavo Costa</td>
+                <td>Vendedor Externo</td>
+                <td>gustavo.costa@comercial.com</td>
+            </tr>
+            <tr>
+                <td>48</td>
+                <td>Marcelo Pereira</td>
+                <td>Assistente de Vendas</td>
+                <td>marcelo.pereira@comercial.com</td>
+            </tr>
+            <tr>
+                <td>49</td>
+                <td>Renata Souza</td>
+                <td>Consultora Comercial</td>
+                <td>renata.souza@comercial.com</td>
+            </tr>
+            <tr>
+                <td>50</td>
+                <td>Júlio César</td>
+                <td>Analista de Vendas</td>
+                <td>julio.cesar@comercial.com</td>
+            </tr>
+        </tbody>
+    </table>
+</main>
+
+</body>
+</html>
