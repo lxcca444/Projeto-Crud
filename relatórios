@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios e Estatísticas</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <style>
+/* Estilo básico para o body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e6e6e6;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Estilo para o header */
+header {
+    background-color: #333;
+    color: white;
+    padding: 10
+    px 20px;
+    text-align: center;
+}
+
+/* Estilo para o gráfico */
+canvas {
+    display: block;
+    margin: 20px auto;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+    </style>
+<header>
+    <h1>Relatórios e Estatísticas</h1>
+</header>
+
+<main>
+    <h2>Gráfico de Estatísticas</h2>
+
+    <!-- Canvas para o gráfico -->
+    <canvas id="estatisticasChart" width="800" height="800"></canvas>
+
+    <script>
+        // Dados fictícios para o gráfico
+        const dadosEstatisticas = {
+            labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun' , 'Jul'], // Meses
+            datasets: [{
+                label: 'Vendas (em R$)',
+                data: [58000, 70000, 80000, 65000, 90000, 75000, 98000], // Valores das vendas
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        // Configuração do gráfico
+        const config = {
+            type: 'bar', // Tipo do gráfico (barras)
+            data: dadosEstatisticas,
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        // Criação do gráfico
+        const estatisticasChart = new Chart(
+            document.getElementById('estatisticasChart'), // ID do canvas
+            config
+        );
+    </script>
+</main>
+
+</body>
+</html>
