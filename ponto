@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcação de Ponto - Empresa Comercial</title>
+    <style>
+        /* Resetando estilos padrão */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Estilo geral da página */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Container principal */
+        .container {
+            background-color: #fff;
+            width: 100%;
+            max-width: 800px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Título */
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        /* Formulário de entrada de dados */
+        .form-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .form-container input, .form-container button {
+            width: 48%;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .form-container input {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+        }
+
+        .form-container button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s;
+        }
+
+        .form-container button:hover {
+            background-color: #45a049;
+        }
+
+        /* Tabela de pontos */
+        .table-container {
+            width: 100%;
+            margin-top: 30px;
+            border-collapse: collapse;
+        }
+
+        .table-container th, .table-container td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        .table-container th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .table-container td {
+            background-color: #fafafa;
+        }
+
+        .table-container button {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            font-size: 14px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .table-container button:hover {
+            background-color: #e53935;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .form-container {
+                flex-direction: column;
+            }
+
+            .form-container input, .form-container button {
+                width: 100%;
+            }
+
+            .table-container th, .table-container td {
+                font-size: 14px;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Marcação de Ponto</h1>
+        
+        <!-- Formulário de marcação de ponto -->
+        <div class="form-container">
+            <input type="text" id="funcionario" placeholder="Nome do Funcionário" required>
+        </div>
+
+        <div class="form-container">
+            <button onclick="registrarPonto()">Registrar Ponto</button>
+        </div>
+
+        <!-- Tabela com registros de ponto -->
+        <table class="table-container">
+            <thead>
+                <tr>
+                    <th>Funcionário</th>
+                    <th>Entrada</th>
+                    <th>Almoço</th>
+                    <th>Retorno</th>
+                    <th>Saída</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody id="tabelaPontos">
+                <!-- Os registros serão adicionados aqui -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        let pontoRegistro = {}; // Objeto para armazenar os registros dos funcionários
+        let statusPonto = {}; // Objeto para controlar o status do ponto (entrada, almoço, retorno, saída)
+
+        // Função para registrar o ponto
+        function registrarPonto() {
+            const funcionario = document.getElementById('funcionario').value;
+
+            if (funcionario === "") {
+                alert("Por favor, insira o nome do funcionário.");
+                return;
+            }
+
+            // Se o funcionário ainda não tem um registro, cria o objeto
+            if (!pontoRegistro[funcionario]) {
+                pontoRegistro[funcionario] = { entrada: null, almoco: null, retorno: null, saida: null };
+                statusPonto[funcionario] = 'entrada'; // Primeiro status será "entrada"
+                alert("Primeiro registre a entrada!");
+                return;
+            }
+
+            // A cada clique, registra o próximo ponto
+            const horaAtual = new Date().toLocaleTimeString();
+
+            if (statusPonto[funcionario] === 'entrada') {
+                pontoRegistro[funcionario].entrada = horaAtual;
+                statusPonto[funcionario] = 'almoco';
+                alert("Entrada registrada. Agora registre o almoço.");
+            } else if (statusPonto[funcionario] === 'almoco') {
+                pontoRegistro[funcionario].almoco = horaAtual;
+                statusPonto[funcionario] = 'retorno';
+                alert("Almoço registrado. Agora registre o retorno.");
+            } else if (statusPonto[funcionario] === 'retorno') {
+                pontoRegistro[funcionario].retorno = horaAtual;
+                statusPonto[funcionario] = 'saida';
+                alert("Retorno registrado. Agora registre a saída.");
+            } else if (statusPonto[funcionario] === 'saida') {
+                pontoRegistro[funcionario].saida = horaAtual;
+                statusPonto[funcionario] = 'entrada'; // Reset para próxima entrada
+                alert("Saída registrada. Agora o ciclo recomeça.");
+            }
+
+            // Atualiza a tabela com os registros do funcionário
+            atualizarTabela(funcionario);
+
+            // Limpa o campo de nome após registrar
+            document.getElementById('funcionario').value = "";
+        }
+
+        // Função para atualizar a tabela de registros
+        function atualizarTabela(funcionario) {
+            const tabelaPontos = document.getElementById('tabelaPontos');
+            let linha = document.getElementById(funcionario);
+
+            if (!linha) {
+                // Se o funcionário ainda não estiver na tabela, cria uma nova linha
+                linha = document.createElement('tr');
+                linha.id = funcionario;
+
+                // Adiciona a linha à tabela
+                tabelaPontos.appendChild(linha);
+            }
+
+            // Atualiza a linha com os dados mais recentes
+            linha.innerHTML = `
+                <td>${funcionario}</td>
+                <td>${pontoRegistro[funcionario].entrada || ''}</td>
+                <td>${pontoRegistro[funcionario].almoco || ''}</td>
+                <td>${pontoRegistro[funcionario].retorno || ''}</td>
+                <td>${pontoRegistro[funcionario].saida || ''}</td>
+                <td><button onclick="removerPonto('${funcionario}')">Remover</button></td>
+            `;
+        }
+
+        // Função para remover o ponto do funcionário
+        function removerPonto(funcionario) {
+            const linha = document.getElementById(funcionario);
+            linha.remove();
+            delete pontoRegistro[funcionario]; // Remove o registro do objeto
+            delete statusPonto[funcionario]; // Remove o status do objeto
+        }
+    </script>
+
+</body>
+</html>
